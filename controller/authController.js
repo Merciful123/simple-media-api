@@ -2,6 +2,9 @@ import bcrypt from "bcrypt";
 import UserModel from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 
+
+// register user code
+
 export const registerUser = async (req, res) => {
   console.log("running");
   try {
@@ -12,9 +15,9 @@ export const registerUser = async (req, res) => {
 
     const newUser = new UserModel(req.body);
 
-    const { name } = req.body;
+    const { email } = req.body;
 
-    const oldUser = await UserModel.findOne({ name });
+    const oldUser = await UserModel.findOne({ email });
     if (oldUser) {
       return res
         .status(400)
@@ -36,6 +39,11 @@ export const registerUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+
+
+// login user code
 
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;

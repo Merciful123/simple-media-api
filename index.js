@@ -6,6 +6,9 @@ import cors from "cors";
 
 import bodyParser from "body-parser";
 import authRoute from "./route/authRoute.js";
+import followUserRoute from "./route/followUserRoute.js"
+import createPostRoute from "./route/postRoute.js"
+import getAllPostsRoute from "./route/getAllPosts.js"
 dotenv.config();
 
 const port = process.env.PORT;
@@ -49,6 +52,7 @@ app.get("/", (req,res) => {
   return res.json({message:"connected"})
 })
 
-app.use("/api", authRoute)
-
-// app.use("/api", authRoute)
+app.use("/api", authRoute);
+app.use("/api", createPostRoute);
+app.use("/api", followUserRoute);
+app.use("/api", getAllPostsRoute);
