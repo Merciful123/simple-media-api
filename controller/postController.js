@@ -11,7 +11,7 @@ const createPost = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
+    
     // Create a new post
     const newPost = new PostModel({
       userId,
