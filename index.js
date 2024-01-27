@@ -10,6 +10,7 @@ import followUserRoute from "./route/followUserRoute.js"
 import createPostRoute from "./route/postRoute.js"
 import getAllPostsRoute from "./route/getAllPosts.js"
 import getAllUsersRoute from "./route/getAllUserRouete.js"
+import singleUserPostsRoute from "./route/singleUserPosts.js"
 dotenv.config();
 
 const port = process.env.PORT;
@@ -59,3 +60,4 @@ app.use("/api", createPostRoute);
 app.use("/api", followUserRoute);
 app.use("/api", getAllPostsRoute);
 app.use("/api", getAllUsersRoute);
+app.use("/api", singleUserPostsRoute);
