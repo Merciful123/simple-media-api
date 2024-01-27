@@ -3,7 +3,7 @@ import UserModel from "../model/userModel.js";
 
 const createPost = async (req, res) => {
   try {
-    const { userId, postData } = req.body;
+    const { userId, postData, username } = req.body;
 
     // Check if the user exists
     const user = await UserModel.findById(userId);
@@ -16,6 +16,7 @@ const createPost = async (req, res) => {
     const newPost = new PostModel({
       userId,
       postData,
+      username
     });
 
     // Save the post to the database

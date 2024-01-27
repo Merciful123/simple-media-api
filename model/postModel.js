@@ -6,11 +6,16 @@ const postSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    postData: String,
+    username: {
+      type: String,
+      required: true,
+    },
+
+    postData: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-const PostModel = mongoose.model("Posts", postSchema)
+const PostModel = mongoose.model("Posts", postSchema);
 
-export default PostModel
+export default PostModel;
