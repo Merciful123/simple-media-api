@@ -8,9 +8,11 @@ import bodyParser from "body-parser";
 import authRoute from "./route/authRoute.js";
 import followUserRoute from "./route/followUserRoute.js"
 import createPostRoute from "./route/postRoute.js"
-import getAllPostsRoute from "./route/getAllPosts.js"
-import getAllUsersRoute from "./route/getAllUserRouete.js"
+import getAllPostsRoute from "./route/getAllPostsRoute.js"
+import getAllUsersRoute from "./route/getAllUserRoute.js"
 import singleUserPostsRoute from "./route/singleUserPosts.js"
+import getUserDetailsRoute from "./route/getUserDetailsRoute.js"
+
 dotenv.config();
 
 const port = process.env.PORT;
@@ -61,3 +63,4 @@ app.use("/api", followUserRoute);
 app.use("/api", getAllPostsRoute);
 app.use("/api", getAllUsersRoute);
 app.use("/api", singleUserPostsRoute);
+app.use("/api", getUserDetailsRoute);
