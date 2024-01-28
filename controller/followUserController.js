@@ -5,6 +5,11 @@ const followUser = async (req, res) => {
   try {
     const { userId, followUserId } = req.body;
 
+    // Check if userId is the same as followUserId
+    if (userId === followUserId) {
+      return res.status(400).json({ message: "Cannot follow yourself" });
+    }
+
     // Check if both user and followUser exist
     const user = await UserModel.findById(userId);
     const followUser = await UserModel.findById(followUserId);
@@ -40,8 +45,7 @@ const followUser = async (req, res) => {
       await session.commitTransaction();
       session.endSession();
 
-        res.status(200).json({ message: "User followed successfully" });
-        
+      res.status(200).json({ message: "User followed successfully" });
     } catch (error) {
       await session.abortTransaction();
       session.endSession();
